@@ -17,7 +17,7 @@ def tarea(caballo,lock,ganador,META):
                 break
             else:
                 caballo.posicion += 1
-                print(f"{caballo.nombre}: | {caballo.posicion}")
+                print(f"{caballo.nombre}: {'|' * caballo.posicion}")
 
 def main(n,META):
     caballos = [Caballo(f"caballo_{i+1}") for i in range(n)]
