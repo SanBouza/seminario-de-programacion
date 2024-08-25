@@ -3,17 +3,15 @@
 def mergeSort(lista):
     if len(lista) > 1:
         mid = len(lista) // 2
-        list_izq = lista[:mid]
-        list_der = lista[mid:]
-      
-        # izq_ordenada = mergeSort(list_izq)    # Aca se pueden usar threads, uno cada mergeSort()
-        # der_ordenada = mergeSort(list_der)
-
-        merge(izq_ordenada,der_ordenada)
+        list_izq = mergeSort(lista[:mid])
+        list_der = mergeSort(lista[mid:])
+        return merge(list_izq, list_der)
+    else:
+        return lista
       
         
 
-def merge(left,right): # Une las dos listas ¡¡¡YA!!! ordenadas. 
+def merge(left,right): 
     merged = []
     i=j=0
 
@@ -35,9 +33,10 @@ def merge(left,right): # Une las dos listas ¡¡¡YA!!! ordenadas.
 
     return merged
 
+# Implementación
+
 l = [1,6,4,9,3,2]
 
 p = mergeSort(l)
 
-print(l)
 print(p)
